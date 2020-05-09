@@ -16,21 +16,15 @@ services:
 
   redis:
     container_name: redis
-    build:
-      context: .
-      dockerfile: ./Dockerfile-redis
+    image: darkzeratul64/webrtc-redis:latest
     ports:
       - 6379:6379
-    volumes:
-      - ./SignalingServer/config/redis.conf:/etc/redis/redis.conf
     networks:
       - backend
 
   signaling_server_prod:
     container_name: signaling_server_prod
     image: darkzeratul64/webrtc-signalingserver:latest
-    volumes:
-      - ./SignalingServer:/usr/src/app
     ports:
       - 9000:9000
     links:
