@@ -3,11 +3,11 @@ services:
 
   mongodb:
     container_name: mongodb
-    image: mongo:latest
+    image: darkzeratul64/webrtc-mongodb:latest
     restart: always
     command: ["--bind_ip_all"]
     volumes:
-      - ./SignalingServer/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo-volume:/data/db
     ports:
       - 27017:27017
