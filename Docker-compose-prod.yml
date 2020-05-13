@@ -40,6 +40,8 @@ services:
     image: darkzeratul64/webrtc-videoconference:latest
     stdin_open: true
     # tty: true
+    volumes:
+      - ./certs:/etc/ssl/app
     ports:
       - 80:80
 
