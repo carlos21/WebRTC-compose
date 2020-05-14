@@ -1,4 +1,13 @@
 version: '3'
+
+secrets:
+
+  nginx_ssl_bundle:
+    file: ./certs/ssl-bundle.crt
+
+  nginx_ssl_private_key:
+    file: ./certs/carlosduclos.dev.key
+
 services:
 
   mongodb:
@@ -39,6 +48,10 @@ services:
     container_name: videoconference_app_prod
     image: darkzeratul64/webrtc-videoconference:latest
     stdin_open: true
+    secrets:
+      - nginx_ssl_bundle
+      - nginx_ssl_private_key
+
     # tty: true
     volumes:
       - ./certs:/etc/ssl/app
