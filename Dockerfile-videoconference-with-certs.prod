@@ -1,0 +1,5 @@
+FROM darkzeratul64/webrtc-videoconference:latest
+
+COPY ./certs /etc/ssl/app/certs/
+
+CMD ["nginx", "-g", "pid /tmp/nginx.pid; daemon off;"]

@@ -1,12 +1,12 @@
 version: '3.1'
 
-secrets:
+# secrets:
 
-  nginx_ssl_bundle:
-    file: ./certs/ssl-bundle.crt
+#   nginx_ssl_bundle:
+#     file: ./certs/ssl-bundle.crt
 
-  nginx_ssl_private_key:
-    file: ./certs/carlosduclos.dev.key
+#   nginx_ssl_private_key:
+#     file: ./certs/carlosduclos.dev.key
 
 services:
 
@@ -46,15 +46,18 @@ services:
 
   videoconference_app_prod:
     container_name: videoconference_app_prod
-    image: darkzeratul64/webrtc-videoconference:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile-videoconference-with-certs.prod
+    # image: darkzeratul64/webrtc-videoconference:latest
     stdin_open: true
-    secrets:
-      - nginx_ssl_bundle
-      - nginx_ssl_private_key
+    # secrets:
+    #   - nginx_ssl_bundle
+    #   - nginx_ssl_private_key
 
     # tty: true
-    volumes:
-      - ./certs:/etc/ssl/app
+    # volumes:
+    #   - ./certs:/etc/ssl/app
     ports:
       - 80:80
 
