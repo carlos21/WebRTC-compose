@@ -74,7 +74,7 @@ services:
     ports:
       - 5349:5349
       - 3478:3478
-      - 49152-53236:49152-53236/udp
+      # - 49152-53236:49152-53236/udp
     command:
       - -c /etc/coturn/turnserver.conf
       - --log-file=stdout
