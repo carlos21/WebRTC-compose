@@ -78,6 +78,8 @@ services:
       - -c /etc/coturn/turnserver.conf
       - --log-file=stdout
       - --external-ip=$$(detect-external-ip)
+    networks:
+      - backend
 
 networks:
     backend:
