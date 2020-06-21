@@ -74,10 +74,12 @@ services:
     ports:
       - 5349:5349
       - 3478:3478
+      - "1-65535:1-65535"
     command:
       - -c /etc/coturn/turnserver.conf
       - --log-file=stdout
       - --external-ip=$$(detect-external-ip)
+      - --no-cli
     networks:
       - backend
 
