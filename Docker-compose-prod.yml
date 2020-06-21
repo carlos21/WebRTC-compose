@@ -75,7 +75,7 @@ services:
       - 5349:5349
       - 3478:3478
     command:
-      - -c=/etc/coturn/turnserver.conf
+      - -c /etc/coturn/turnserver.conf
       - --log-file=stdout
       - --external-ip=$$(detect-external-ip)
 
