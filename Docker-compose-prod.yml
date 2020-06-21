@@ -70,7 +70,7 @@ services:
     container_name: coturn
     image: darkzeratul64/webrtc-coturn:latest
     restart: unless-stopped
-    # network_mode: host
+    network_mode: host
     ports:
       - 5349:5349
       - 3478:3478
@@ -78,8 +78,8 @@ services:
       - -c /etc/coturn/turnserver.conf
       - --log-file=stdout
       - --external-ip=$$(detect-external-ip)
-    networks:
-      - backend
+    # networks:
+    #   - backend
 
 networks:
     backend:
